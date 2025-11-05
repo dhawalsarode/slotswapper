@@ -43,7 +43,7 @@ const PendingSwaps: React.FC<Props> = ({ token, onSwapResolved }) => {
 
   const fetchPendingSwaps = () => {
     setLoading(true);
-    fetch("http://127.0.0.1:5000/api/requests/pending", {
+    fetch(`${import.meta.env.VITE_API_URL}/api/requests/pending`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -59,7 +59,7 @@ const PendingSwaps: React.FC<Props> = ({ token, onSwapResolved }) => {
   }, [token]);
 
   const handleAction = (swapId: string, type: "accept" | "reject") => {
-    fetch(`http://127.0.0.1:5000/api/requests/${swapId}/${type}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/api/requests/${swapId}/${type}`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
     })

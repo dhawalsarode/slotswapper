@@ -19,7 +19,7 @@ const SwapRequestForm: React.FC<Props> = ({
     e.preventDefault();
     setLoading(true);
     setResponse(null);
-    const res = await fetch("http://127.0.0.1:5000/api/requests/swap", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/requests/swap`, {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
       body: JSON.stringify({
