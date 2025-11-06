@@ -9,10 +9,11 @@ import {
 } from "@mui/material";
 
 interface Props {
-  onRegister: (email: string, password: string) => void;
+  onRegister: (name: string, email: string, password: string) => void;
 }
 
 const Register: React.FC<Props> = ({ onRegister }) => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
@@ -25,7 +26,7 @@ const Register: React.FC<Props> = ({ onRegister }) => {
       setError("Passwords do not match");
       return;
     }
-    onRegister(email, password);
+    onRegister(name, email, password);
   };
 
   return (
@@ -40,6 +41,14 @@ const Register: React.FC<Props> = ({ onRegister }) => {
       )}
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
+          <TextField
+            label="Name"
+            size="small"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            fullWidth
+          />
           <TextField
             label="Email"
             size="small"

@@ -87,26 +87,29 @@ const App: React.FC = () => {
     }
   };
 
-  const handleRegister = async (email: string, password: string) => {
-    try {
-      const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-      const data = await res.json();
-      if (data.access_token && data.user && data.user.id) {
-        setToken(data.access_token);
-        localStorage.setItem("user_id", data.user.id);
-        setSnackbar({ msg: "Registration successful", type: "success" });
-        setTabIndex(0);
-      } else {
-        setSnackbar({ msg: data.message || "Registration failed", type: "error" });
-      }
-    } catch (err) {
-      setSnackbar({ msg: "Network/server error", type: "error" });
+  const handleRegister = async (name: string, email: string, password: string) => {
+  try {
+    const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, password }),
+    });
+    const data = await res.json();
+    if (data.access_token && data.user && data.user.id) {
+      setToken(data.access_token);
+      localStorage.setItem("user_id", data.user.id);
+      setSnackbar({ msg: "Registration successful", type: "success" });
+      setTabIndex(0);
+    } else {
+      setSnackbar({ msg: data.message || "Registration failed", type: "error" });
     }
-  };
+  } catch (err) {
+    setSnackbar({ msg: "Network/server error", type: "error" });
+  }
+};
+
+<Register onRegister={handleRegister} />
+
 
   const handleSwapComplete = () => {
     setSelectedMyEvent(null);
