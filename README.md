@@ -1,7 +1,3 @@
-
-***
-
-```markdown
 # SlotSwapper
 
 SlotSwapper is a full-stack scheduling and slot swap application. Users can register, log in, create events, and propose event swaps with others. The project uses a React + Material UI frontend and a Python backend deployed on Vercel and Render.
@@ -23,38 +19,38 @@ SlotSwapper is a full-stack scheduling and slot swap application. Users can regi
 ### Steps
 
 1. **Clone the repo:**
-   ```
-   git clone https://github.com/YOUR_USERNAME/slotswapper.git
-   cd slotswapper
-   ```
+git clone https://github.com/YOUR_USERNAME/slotswapper.git
+cd slotswapper
+
+text
 
 2. **Backend:**
-   - Enter the backend folder (if present) or use root for monorepo.
-   - Install dependencies:
-     ```
-     pip install -r requirements.txt
-     ```
-   - Copy `.env.example` to `.env`. Set environment variables as needed.
-   - Start backend:
-     ```
-     python app.py
-     ```
+- Enter the backend folder (if present) or use root for monorepo.
+- Install dependencies:
+  ```
+  pip install -r requirements.txt
+  ```
+- Copy `.env.example` to `.env`. Set environment variables as needed.
+- Start backend:
+  ```
+  python app.py
+  ```
 
 3. **Frontend:**
-   - Change to the frontend folder:
-     ```
-     cd frontend
-     ```
-   - Install dependencies:
-     ```
-     npm install
-     ```
-   - Copy `.env.example` to `.env` and set backend URL.
-   - Start frontend:
-     ```
-     npm start
-     ```
-   - Browse to `http://localhost:3000`
+- Change to the frontend folder:
+  ```
+  cd frontend
+  ```
+- Install dependencies:
+  ```
+  npm install
+  ```
+- Copy `.env.example` to `.env` and set backend URL.
+- Start frontend:
+  ```
+  npm start
+  ```
+- Browse to `http://localhost:3000`
 
 ## API Endpoints
 
@@ -78,12 +74,11 @@ SlotSwapper is a full-stack scheduling and slot swap application. Users can regi
 - Main design challenge: seamless API/env var integration across cloud deploys.
 - JWT authentication and CORS handled as per SaaS best practices.
 
-## Screenshots
-(Add screenshots here using: ![Description](relative/path/or/url.png))
 
 ## Authors
 
-- [Dhawal Sarode](https://github.com/dhawalsarode)
+- Dhawal Sarode (https://github.com/dhawalsarode)
+
 
 ## License
 
@@ -92,7 +87,3 @@ MIT
 ## Support
 
 Raise an issue or PR for contributions/feedback.
-```
-
-***
-
