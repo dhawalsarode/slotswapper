@@ -61,9 +61,14 @@ const App: React.FC = () => {
     }
   }, [token]);
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL!;
+  if (!API_BASE_URL) {
+    throw new Error("VITE_API_URL environment variable is not set!");
+  }
+
   const handleLogin = async (email: string, password: string) => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/auth/login", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -84,7 +89,7 @@ const App: React.FC = () => {
 
   const handleRegister = async (email: string, password: string) => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/auth/register", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -156,10 +161,14 @@ const App: React.FC = () => {
       </Typography>
       <Box sx={{ mb: 3 }}>
         <Alert severity="info" variant="outlined">
-          <strong>How to request a slot swap:</strong><br />
-          1. Select an event from <b>My Events</b>.<br />
-          2. Then select an event from <b>Other Events</b>.<br />
-          3. The swap request form will appear below once both events are selected.<br />
+          <strong>How to request a slot swap:</strong>
+          <br />
+          1. Select an event from <b>My Events</b>.
+          <br />
+          2. Then select an event from <b>Other Events</b>.
+          <br />
+          3. The swap request form will appear below once both events are selected.
+          <br />
           <br />
           <strong>Note:</strong> Both events must be in "SWAPPABLE" status to swap. New events are created with this by default.
         </Alert>

@@ -1,4 +1,7 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://127.0.0.1:5000";
+const API_BASE = import.meta.env.VITE_API_URL;
+if (!API_BASE) {
+  throw new Error("VITE_API_URL environment variable is not set");
+}
 
 export async function registerUser(name, email, password) {
   const response = await fetch(`${API_BASE}/api/auth/register`, {
