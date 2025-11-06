@@ -19,7 +19,7 @@ SlotSwapper is a full-stack scheduling and slot swap application. Users can regi
 ### Steps
 
 1. **Clone the repo:**
-git clone https://github.com/YOUR_USERNAME/slotswapper.git
+git clone https://github.com/dhawalsarode/slotswapper.git
 cd slotswapper
 
 text
